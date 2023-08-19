@@ -18,13 +18,15 @@
 }
 
 .attendance-container {
-    background-color: #fff;
+    background-color: rgba(234, 224, 224, 0.8);
+   
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 
 .attendance-container h2 {
     text-align: center;
@@ -51,10 +53,12 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border-color: black;
 }
 
 table, th, td {
-    border: 1px solid #ccc;
+    border: 1px solid #1a1919;
+    
 }
 
 th, td {
@@ -80,8 +84,22 @@ th, td {
 }
 
 button:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
+.submit{
+    background-color: #e8330a;
+    color: rgb(215, 207, 207);
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px;
+    border: none;
+    transition: all .3s ease;
+}
+.submit:hover{
+    background-color: #28a745;
+    color:#0c0c0c;
+    box-shadow: 0px 1px 10px red;
+}
+
 
     </style>
     <script>
@@ -164,9 +182,9 @@ attendanceForm.addEventListener("submit", (event) => {
                 </tbody>
             </table>
             
-            <button type="submit">Submit Attendance</button>
+            <button type="submit" class="submit">Submit Attendance</button>
         </form>
     </div>
-    <script src="script.js"></script>
+    
 </body>
 </html>
