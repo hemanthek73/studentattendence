@@ -1,0 +1,102 @@
+*{
+  margin: 0;
+  padding:0;
+}
+.img{
+  margin-top: -10px;
+  background-image: url('3.png');
+  background-size: cover;
+
+  
+}
+ .form .message{
+  color:red;
+}
+.panel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  height: 640px;
+ 
+ margin-top: 3px;
+  z-index: -1;
+  
+}
+.h{
+ padding-top: 80px;
+}
+.h h1{
+  
+  color:rgb(151, 225, 225);
+  
+
+}
+
+  
+
+.form{
+  display: flex;
+  align-items: center;
+flex-direction: column;
+background-color:transparent;
+border: 2px solid black;
+box-shadow: 0px 0px 10px rgb(11, 11, 11),0px 0px 10px rgb(180, 222, 213),0px 0px 10px rgb(18, 16, 16);
+   width:350px;
+  height: 400px;
+  
+  
+
+
+
+}
+.form p{
+  font-size: 16px;
+  color:rgb(19, 19, 20);
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.col input{
+  width: 240px;
+  height: 40px;
+  font-size: 16px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  border-radius: 3%;
+  background: rgb(196, 220, 232) ;
+
+}
+.col button{
+  height: 35px;
+  width: 70px;
+  color:white;
+  background-color:rgb(27, 27, 222);
+  border-radius: 20px;
+  margin-top: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  transition: all 0.2s ease ;
+}
+.col button:hover{
+  cursor: pointer;
+  color:black;
+  background: white;
+
+}
+/* profile */
+.profile{
+  display:flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.f1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.details input{
+  width: 400px;
+}

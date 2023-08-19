@@ -1,0 +1,76 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Attendance System </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="design.css"> 
+  
+</head>
+
+<body>
+  <div class="img">
+  
+  <div class="head">
+    
+
+  </div>
+  <div class="h">
+    <h1 style="text-align: center;">NAVKIS COLLAGE OF ENGINEERING</h1>
+    <h2 style="text-align: center;
+    margin-top: 10px;">Welcome to Student Attendance Management System!</h2><br/>
+  </div>
+  <div class="panel">
+
+    <div class="form">
+      <P>ADMIN LOGIN</P>
+        <div class="col">
+            <input type="text" class="form-control txtuser" placeholder="user name">
+        </div>
+        <div class="col pay-4">
+            <input type="password" class=" form-contol txtpass" placeholder="password.."></br>
+            <button class="btn-btn-success submit px-4" >submit</button>
+           
+            
+        </div>
+        <p class="message "></p>
+    </div>
+    <div class="change">
+   
+  </div>
+  </div>
+
+</div>
+
+<script>
+    let txtuser=document.querySelector(".txtuser");
+    let txtpass=document.querySelector(".txtpass");
+    let submit=document.querySelector(".submit");
+
+    if(window.localStorage){
+        localStorage.setItem("user","hemanth");
+        localStorage.setItem("pass","@123");
+
+        let user=localStorage.getItem("user");
+        let pass=localStorage.getItem("pass");
+        let message=document.querySelector(".message");
+
+        submit.addEventListener("click",()=>{
+            if(user==txtuser.value && pass==txtpass.value){
+            message.innerHTML="login successfully...";
+            message.style.color='green';
+            window.location="teacher.html"
+        }else{
+            message.innerHTML="user name or password is invalid";
+        }
+    }
+        );
+    }
+</script>
+
+</body>
+</html>
+
+

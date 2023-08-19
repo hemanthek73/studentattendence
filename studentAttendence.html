@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Attendance Form</title>
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url('1.png');
+    background-size: cover;
+}
+
+.attendance-container {
+    background-color: #fff;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#branch{
+  float: right;
+}
+
+select, button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+.absent-btn, .present-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.absent-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.present-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+    </style>
+    <script>
+      const absentButtons = document.querySelectorAll(".absent-btn");
+const presentButtons = document.querySelectorAll(".present-btn");
+
+absentButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        button.classList.add("selected");
+    });
+});
+
+presentButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        button.classList.add("selected");
+    });
+});
+
+const attendanceForm = document.getElementById("attendance-form");
+
+attendanceForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const selectedAbsentButtons = document.querySelectorAll(".absent-btn.selected");
+    const selectedPresentButtons = document.querySelectorAll(".present-btn.selected");
+
+    const absentCount = selectedAbsentButtons.length;
+    const presentCount = selectedPresentButtons.length;
+    
+    alert(`Attendance Submitted:\nAbsent: ${absentCount}\nPresent: ${presentCount}`);
+});
+
+    </script>
+</head>
+<body>
+    <div class="attendance-container">
+        <h2>Attendance Form</h2>
+        <form id="attendance-form">
+           
+            <select id="branch" name="branch">
+                <option value="cse">CSE</option>
+                <option value="aids">AIDS</option>
+                <option value="aiml">AIML</option>
+                <option value="civil">CIVIL</option>
+                <option value="mech">MECH</option>
+            </select>
+            
+          
+            <label for="semester">Select Semester:</label> <select id="semester" name="semester">
+                <option value="1"> 1</option>
+                <option value="2"> 2</option>
+                <option value="3">3</option>
+                <option value="4"> 4</option>
+                <option value="5"> 5</option>
+                <option value="6">6</option>
+                <option value="7"> 7</option>
+                <option value="8"> 8</option>
+                
+            </select>
+
+            <table id="attendance-table">
+                <thead>
+                    <tr>
+                        <th>USN</th>
+                        <th>Student Name</th>
+                        <th>Total Classes</th>
+                        <th>Absent</th>
+                        <th>Present</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01CS001</td>
+                        <td>John Doe</td>
+                        <td>10</td>
+                        <td><button class="absent-btn">Absent</button></td>
+                        <td><button class="present-btn">Present</button></td>
+                    </tr>
+                    <!-- Add more rows for other students -->
+                </tbody>
+            </table>
+            
+            <button type="submit">Submit Attendance</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Student List</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('1.png');
+  background-size: cover;
+}
+
+.container {
+  background: rgba(255,255,255,0.7);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 10px;
+  BORDER:1PX SOLID BLACK;
+  box-shadow: 0px 0px 10px rgb(253, 251, 251);
+}
+
+button {
+  margin: 5px;
+}
+#reportBtn{
+  float: right;
+  width:70px;
+  height: 35px;
+  color:rgb(253, 252, 252);
+  background-color: rgb(241, 53, 53);
+  border-radius: 5%;
+  border:none;
+  transition: all 0.3s ease;
+}
+#reportBtn:hover{
+  color:red;
+  background-color: #ddd;
+  box-shadow: 0px 0px 10px red;
+}
+#addBtn{
+  float: right;
+  width:70px;
+  height: 35px;
+  color:rgb(253, 252, 252);
+  background-color: rgb(82, 91, 252);
+  border-radius: 5%;
+  border:none;
+  transition: all 0.3s ease;
+}
+#addBtn:hover{
+  color:rgb(196, 176, 176);
+  background-color: #a9e3d0;
+  box-shadow: 0px 0px 10px rgb(136, 139, 227);
+}
+
+
+.search-container {
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  border-color: black;
+
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+#searchInput {
+  margin-left: 10px;
+}
+
+  </style>
+ 
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const reportBtn = document.getElementById("reportBtn");
+  const addBtn = document.getElementById("addBtn");
+  const branchSelect = document.getElementById("branch");
+  const semSelect=document.getElementById("sem");
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const studentList = document.getElementById("studentList");
+
+  const sampleStudentData = [
+    { name: "John Doe", usn: "12345", sem: 3, present: 20, absent: 2, branch: "CSE" },
+    { name: "Jane Smith", usn: "67890", sem: 2, present: 18, absent: 4, branch: "MECH" },
+    { name: "Alice Johnson", usn: "54321", sem: 4, present: 19, absent: 3, branch: "ELE" },
+    { name: "Bob Williams", usn: "98765", sem: 3, present: 17, absent: 5, branch: "AIML" },
+    { name: "Eva Davis", usn: "23456", sem: 2, present: 16, absent: 6, branch: "AIDS" },
+    { name: "Michael Wilson", usn: "87654", sem: 4, present: 20, absent: 2, branch: "CIVIL" },
+    { name: "Sophia Brown", usn: "65432", sem: 3, present: 18, absent: 4, branch: "CSE" },
+    { name: "Daniel Lee", usn: "56789", sem: 2, present: 19, absent: 3, branch: "MECH" },
+    { name: "Olivia Martinez", usn: "43210", sem: 4, present: 17, absent: 5, branch: "ELE" },
+    { name: "William Taylor", usn: "76543", sem: 3, present: 16, absent: 6, branch: "AIML" }
+  ];
+
+  function renderStudentList(students) {
+    studentList.innerHTML = "";
+    students.forEach(student => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${student.name}</td>
+        <td>${student.usn}</td>
+        <td>${student.sem}</td>
+        <td>${student.branch}</td>
+        <td>${student.present}</td>
+        <td>${student.absent}</td>
+      `;
+      studentList.appendChild(row);
+    });
+  }
+
+  function searchStudentByName(name) {
+    const filteredStudents = sampleStudentData.filter(student =>
+      student.name.toLowerCase().includes(name.toLowerCase())
+    );
+    renderStudentList(filteredStudents);
+  }
+
+  function filterStudentsByBranch(branch) {
+    const filteredStudents = sampleStudentData.filter(student =>
+      student.branch === branch
+    );
+    renderStudentList(filteredStudents);
+  }
+  function filterStudentsBySem(sem) {
+    const filteredStudents = sampleStudentData.filter(student =>
+      student.sem === sem
+    );
+    renderStudentList(filteredStudents);
+  }
+
+  reportBtn.addEventListener("click", function() {
+    // Add your report functionality here
+    alert("Report button clicked");
+  });
+
+  addBtn.addEventListener("click", function() {
+    // Add your add functionality here
+    alert("Add button clicked");
+  });
+
+  searchBtn.addEventListener("click", function() {
+  const searchTerm = searchInput.value;
+ 
+  
+  if (searchTerm.trim() !== "") {
+    searchStudentByName(searchTerm);
+  } else if (!isNaN(semSelect)) {
+    filterStudentsBySem(semSelect.value);
+  } else {
+    filterStudentsByBranch(branchSelect.value);
+  }
+});
+
+
+
+  branchSelect.addEventListener("change", function() {
+    const selectedBranch = branchSelect.value;
+    filterStudentsByBranch(selectedBranch);
+  });
+  semSelect.addEventListener("change", function() {
+    const selectedSem = semSelect.value;
+    filterStudentsBySem(selectedSem);
+  });
+
+  // Initially render all students
+  renderStudentList(sampleStudentData);
+});
+
+ </script>
+</head>
+<body>
+  <div class="container">
+    <h4 STYLE="text-align: center;">STUDENTS DETAILS</h4>
+    <button id="reportBtn">Report</button>
+    <button id="addBtn">Add</button>
+
+    <div class="search-container">
+      <label for="branch">Select Branch:</label>
+      <select id="branch" name="branch">
+        <option value="CSE">CSE</option>
+        <option value="MECH">MECH</option>
+        <option value="ELE">ELE</option>
+        <option value="AIML">AIML</option>
+        <option value="AIDS">AIDS</option>
+        <option value="CIVIL">CIVIL</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="Search Student">
+      <label for="sem">Sem:</label>
+      <select id="sem" name="sem">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <table id="studentTable">
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>USN</th>
+          <th>Sem</th>
+          <th>Branch</th>
+          <th>Number of Present</th>
+          <th>Number of Absents</th>
+        </tr>
+      </thead>
+      <tbody id="studentList">
+        <!-- Student details will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
