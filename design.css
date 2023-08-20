@@ -105,3 +105,45 @@ flex-direction: column;
 .details input{
   width: 400px;
 }
+/* Your existing styles */
+
+/* Add media query for mobile screens */
+@media only screen and (max-width: 600px) {
+  .img{
+    height: 715px;
+  }
+  .h {
+   
+    padding-top: 40px;
+    font-size: 14px;
+
+  }
+  .h h1,.h h2{
+    margin-top: 60px;
+    margin-bottom: 0%;
+    font-size: 16px;
+   
+  }
+  .panel{
+    display: flex;
+    justify-content:center;
+  
+    height: 520px;
+  }
+  .form{
+    margin-top: 0%;
+  }
+
+  .login-form {
+   
+    width: 90%; /* Adjust the width as needed */
+    margin: 0 auto;
+  }
+
+  .form-control,
+  .txtpass,
+  .submit {
+    width: 100%;
+    padding: 10px;
+  }
+}

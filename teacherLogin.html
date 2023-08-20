@@ -48,7 +48,7 @@ button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5%;
     cursor: pointer;
 }
 
@@ -68,6 +68,29 @@ button:hover {
     text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  body{
+ height: 610px;
+ width: 400px;
+  }
+  .login-container{
+    width: 100%;
+   
+    
+  }
+  
+}
+@media (max-width: 480px) {
+  body{
+    height: 610px;
+    width: 400px;
+  }
+  .login-container{
+    width: 100%;
+   
+ 
+  }
+}
   </style>
   <script>
     const forgotPasswordLink = document.getElementById("forgot-password");
