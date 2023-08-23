@@ -10,20 +10,33 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            
             min-height: 100vh;
             background-image: url(2.png);
             background-size: cover;
             background-repeat: no-repeat;
             cursor: pointer;
         }
+        .null:nth-child(2){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0%;
+           
+           
+            flex-direction: column;
+          
+        }
+       
 
         .form-container {
+            margin-left: 0%;
             background-color:rgba(39, 40, 40, 0.6);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgb(235, 231, 231),0px 0px 10px rgb(235, 240, 239),0px 0px 10px rgb(216, 208, 208);
-            width: 400px;
+           width: 70%;
+          
         }
 
         .form-container label {
@@ -44,7 +57,7 @@
         }
 
         .form-container textarea {
-            width: 100%;
+            width: 50%;
             padding: 8px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -71,9 +84,65 @@
             height: 50px;
             border-radius: 50%;
         }
+        .navbar{
+            width: 100%;
+            margin: 0%;
+            padding-left: 60%;
+            margin-top: 0%;
+            margin-bottom: 10%;
+            
+            display: flex;
+           justify-content: end;
+             margin-right: 0%;
+             background-color: transparent;
+             
+            
+            
+        }
+        .navbar ul{
+            display: flex;
+           justify-content:end;
+           align-items: end;
+             flex-direction: row;
+             color:black;
+            
+        }
+        ul a{
+            text-decoration: none;
+            font-size: large ;
+            display: flex;
+            justify-content: end;
+            color:#111010;
+            font-style:italic;
+            background-color: #d2a2a2;
+            padding: 6px;
+            border-radius: 10%;
+            transition: all .3s ease ;
+            
+        }
+        ul a:hover{
+            background-color: #7fc396;
+            color: #ffffff;
+        }
+        @media (max-width: 767px) {
+  .form-container {
+    margin-right: 0%;
+    height: 600px;
+    width: 100%;
+  }
+}
     </style>
 </head>
 <body>
+    <div class="null">
+    <div class="navbar">
+        <ul>
+            <ul><a href="teacherLogin.html" traget="_self">teacherLogin</a></ul>
+            <ul><a href="student.html" traget="_self">add student</a></ul>
+            <ul><a href="studentAttendence.html" traget="_self">take attendence</a></ul>
+            <ul><a href="studentList.html" traget="_self">student list</a></ul>
+        </ul>
+    </div>
     <div class="form-container">
         <form>
             <label for="name">Teacher Name:</label>
@@ -100,5 +169,6 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+</div>
 </body>
 </html>
